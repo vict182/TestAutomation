@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
+<parameter name="navegador" value="CHROME"></parameter>
+  <test thread-count="5" name="Test1">
+  <groups>
+  <run>
+  <include name="grupo1"></include>
+  <exclude name="grupo2"></exclude>
+  </run>
+  </groups>
     <classes>
-      <class name="automatioTest.Test_Despegar"/>
+      <class name="automatioTest.TestDespegarHome"/>
     </classes>
-  </test> <!-- Test -->
+  </test> <!-- Test1 -->
 </suite> <!-- Suite -->
