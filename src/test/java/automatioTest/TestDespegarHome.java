@@ -1,5 +1,6 @@
 package automatioTest;
 import org.testng.annotations.Test;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,7 @@ import Pages.Test_DespegarHome;
 import Pages.Test_DespegarHoteles;
 import Pages.Test_DespegarResultado;
 import org.testng.ITestContext;
+
 public class TestDespegarHome extends Base {
 	WebDriver driver = null ;
 	Test_DespegarHome Home = null ;
@@ -51,8 +53,9 @@ public class TestDespegarHome extends Base {
 		 Home.buscarHabitaciones();
 		 Test_DespegarHoteles Hoteles = Home.clickBuscar ();
 		 Test_DespegarResultado Resultado = Hoteles.clickHotel();
-		 Assert.assertTrue(Resultado.LogoVisible(), "El Logo de Despegar.com no es visible"); 
+		 Assert.assertTrue(Resultado.LogoVisible() , "El Logo de Despegar.com no es visible"); 
 }  
+	 
   @AfterMethod (alwaysRun = true)
   public void cerrarDriver () {
 	  if(driver != null) {

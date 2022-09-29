@@ -17,20 +17,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
     private WebDriverWait wait;
 	public WebDriver driver = null;
 	
-    
     @FindBy (css="i.shifu-icon-product.shifu-3-icon-hotels")
 	WebElement clickAlojamiento;
 	@FindBy(xpath = "//*[@class='sbox-places-destination--1xd0k']//input[@class='input-tag']")
 	WebElement clickDestino;
 	@FindBy(xpath = "//*[@class='sbox-places-destination--1xd0k']//input[@class='input-tag']")
     WebElement buscarDestino;
-	@FindBy(xpath = "//*[@id=\"searchbox-sbox-box-hotels\"]/div/div/div/div/div[3]/div[2]/div/div[1]/div/div/div/div")
+	@FindBy(xpath = "//input[@placeholder=\"Entrada\"]")
     WebElement clickIda;
 	@FindBy(xpath = "//*[@id=\"component-modals\"]/div[4]/div[1]/div[2]/div[2]/div[3]/div[10]/div")
 	WebElement clickIda1;
 	@FindBy(xpath = "//*[@id=\"component-modals\"]/div[4]/div[1]/div[2]/div[1]/div[3]/div[30]/div") 
     WebElement clickVuelta1;
-	@FindBy(xpath = "//*[@id=\"component-modals\"]/div[4]/div[2]/div[1]/button")
+	@FindBy(xpath = "//button[@class=\"sbox5-3-btn -primary -md\"]")
 	WebElement clickAplicar1;
 	@FindBy(xpath = "//*[@class='sbox5-3-double-input']//input[@class='sbox5-3-second-input']")
 	WebElement clickHabitaciones;
@@ -72,14 +71,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	                default:
 	                    System.out.println("ingrese un valor correcto");
 	            }
-	        }
-	    }
+	      }
+	 }
 	 public void buscarDestino(String providerLugares) throws InterruptedException {
 	 wait.until(ExpectedConditions.visibilityOf(buscarDestino));
 	 this.clickDestino.click();
-	 Thread.sleep(2000); 
+	 Thread.sleep(1000); 
 	 this.buscarDestino.sendKeys(providerLugares);
-	 Thread.sleep(2000); 
+	 Thread.sleep(1000); 
 	 this.buscarDestino.sendKeys(Keys.ENTER); 
 	 }
 	 
@@ -90,34 +89,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 		 this.buscarDestino.sendKeys(providerLugares2);
 		 Thread.sleep(2000); 
 		 this.buscarDestino.sendKeys(Keys.ENTER); 
-		 }
+	 }
 	 
 	 public void buscarFechas() throws InterruptedException{
 	 this.clickIda.click();
-	 Thread.sleep(2000);
+	 wait.until(ExpectedConditions.visibilityOf(clickIda1));
 	 this.clickIda1.click();
 	 Thread.sleep(2000);
 	 this.clickVuelta1.click();
-	 Thread.sleep(2000);
 	 this.clickAplicar1.click();
      } 
-	 
+
 	 public void buscarHabitaciones() throws InterruptedException{
 		 int numero = 8;
-		 Thread.sleep(2000);
 		 this.clickHabitaciones.click();
-		 Thread.sleep(2000);
+		 wait.until(ExpectedConditions.visibilityOf(clickAdulto));
 		 this.clickAdulto.click();
-		 Thread.sleep(2000);
 		 this.clickNiño.click();
-		 Thread.sleep(2000);
 		 this.clickNiñoEdad.click();
-		 Thread.sleep(2000);
 	     Select edad = new Select(this.edad);
 	     edad.selectByIndex(numero);
-		 Thread.sleep(2000);
 		 this.clickAplicar2.click();
-		 Thread.sleep(2000);
      } 
 
 	 public Test_DespegarHoteles clickBuscar() throws InterruptedException{
